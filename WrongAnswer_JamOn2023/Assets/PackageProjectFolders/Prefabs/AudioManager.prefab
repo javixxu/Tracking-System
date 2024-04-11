@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7349765566202119486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7349765566202119484}
+  - component: {fileID: 7349765566202119487}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7349765566202119484
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7349765566202119486}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5750752, y: -8.823451, z: -9.934532}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7349765566202119487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7349765566202119486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79f063353bd5b441ab1ebbbef7722f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: MainMenu_Music
+    clip: {fileID: 8300000, guid: 7828ac8e62daeaf45b503f4fa7991db6, type: 3}
+    volume: 1
+    maxVolume: 0.5
+    pitch: 1
+    music: 1
+    source: {fileID: 0}
+  - name: Gameplay_Music_1
+    clip: {fileID: 8300000, guid: 81ff383afe3733f41bd8a5e3cbca9dcf, type: 3}
+    volume: 0.25
+    maxVolume: 0.25
+    pitch: 1
+    music: 1
+    source: {fileID: 0}
+  - name: Gameplay_Music_2
+    clip: {fileID: 8300000, guid: 6292ba9e65c9f92448e285f5fd765acf, type: 3}
+    volume: 1
+    maxVolume: 0.5
+    pitch: 1
+    music: 0
+    source: {fileID: 0}
+  - name: Gameplay_Music_3
+    clip: {fileID: 8300000, guid: 7273add657c91b04288105403a5aca46, type: 3}
+    volume: 1
+    maxVolume: 0.5
+    pitch: 1
+    music: 0
+    source: {fileID: 0}
+  - name: ButtonPress
+    clip: {fileID: 8300000, guid: 32033deb965a4554ea631aaa3a3ebc5e, type: 3}
+    volume: 1
+    maxVolume: 1
+    pitch: 1
+    music: 0
+    source: {fileID: 0}
+  - name: ButtonOnselect
+    clip: {fileID: 8300000, guid: b2c57491f44adc547a43e0fdc3c1dbaf, type: 3}
+    volume: 1
+    maxVolume: 0.5
+    pitch: 1
+    music: 0
+    source: {fileID: 0}
+  - name: Pause
+    clip: {fileID: 8300000, guid: 6c1aaf201eef73941b3402b4dc750dae, type: 3}
+    volume: 1
+    maxVolume: 0.5
+    pitch: 1
+    music: 0
+    source: {fileID: 0}
+  - name: ShieldDown
+    clip: {fileID: 8300000, guid: 1b3f92b1e54a96044a62d8213607d182, type: 3}
+    volume: 1
+    maxVolume: 0.5
+    pitch: 1
+    music: 0
+    source: {fileID: 0}
+  - name: ShieldUp
+    clip: {fileID: 8300000, guid: 1e3aa00dec5b17b44ab309d627f70a0e, type: 3}
+    volume: 1
+    maxVolume: 0.768
+    pitch: 1
+    music: 0
+    source: {fileID: 0}
+  - name: Woosh
+    clip: {fileID: 8300000, guid: 24964efeb15434048a7a8939518ce1e4, type: 3}
+    volume: 1
+    maxVolume: 0.768
+    pitch: 1
+    music: 0
+    source: {fileID: 0}
+  - name: Explosion
+    clip: {fileID: 8300000, guid: d2c60b649d41e264cb3aff31fb857679, type: 3}
+    volume: 1
+    maxVolume: 1
+    pitch: 1
+    music: 0
+    source: {fileID: 0}
+  - name: Rocket
+    clip: {fileID: 8300000, guid: 4388edb477809704c8a71b0844d21ce2, type: 3}
+    volume: 1
+    maxVolume: 1
+    pitch: 1
+    music: 0
+    source: {fileID: 0}
