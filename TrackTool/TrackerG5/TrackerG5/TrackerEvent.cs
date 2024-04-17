@@ -12,6 +12,8 @@ namespace TrackerG5
         uint idLevel { get; set; }
         DateTime timestamp { get; }
 
+        
+
 
         public TrackerEvent(string typeEvent, uint id, uint idUser, uint idSession, uint idLevel)
         {
@@ -25,7 +27,7 @@ namespace TrackerG5
 
         public string ToJson()
         {
-            return "javichu juapo";
+            return "javichu juapo == null";
         }
     }
 }
