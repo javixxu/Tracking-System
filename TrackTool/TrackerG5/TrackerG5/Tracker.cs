@@ -16,7 +16,7 @@ namespace TrackerG5
         const int size = 7;
 
 
-        HashSet<TrackerAsset> assets = new HashSet<TrackerAsset>();//lista de assets
+        HashSet<ITrackerAsset> assets = new HashSet<ITrackerAsset>();//lista de assets
         List<TrackerEvent> events = new List<TrackerEvent>();
 
         Tracker() { }
@@ -83,9 +83,7 @@ namespace TrackerG5
 
             //guarda el id del usuario en disco
         }
-        public void EnableTypeEvent(){
 
-        }
         private string CreateHashID(string blockchain)
         {
             SHA256 sha256 = SHA256.Create();
