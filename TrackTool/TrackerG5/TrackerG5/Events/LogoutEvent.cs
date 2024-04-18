@@ -2,9 +2,9 @@
 
 namespace TrackerG5
 {
-    internal class Logout : TrackerEvent
+    internal class LogoutEvent: TrackerEvent
     {
-        public Logout(string typeEvent, uint id, uint idUser, uint idSession, uint idLevel)
+        public LogoutEvent(string typeEvent, uint id, uint idUser, uint idSession, uint idLevel)
             : base(typeEvent, id, idUser, idSession, idLevel)
         {
 

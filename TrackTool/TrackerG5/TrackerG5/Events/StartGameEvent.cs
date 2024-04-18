@@ -2,9 +2,9 @@
 
 namespace TrackerG5
 {
-    internal class StartGame : TrackerEvent
+    internal class StartGameEvent: TrackerEvent
     {
-        public StartGame(string typeEvent, uint id, uint idUser, uint idSession, uint idLevel)
+        public StartGameEvent(string typeEvent, uint id, uint idUser, uint idSession, uint idLevel)
             : base(typeEvent, id, idUser, idSession, idLevel)
         {
 
