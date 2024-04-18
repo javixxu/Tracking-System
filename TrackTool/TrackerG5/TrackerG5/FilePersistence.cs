@@ -8,8 +8,10 @@ namespace TrackerG5
         List<TrackerEvent> eventsQueue = new List<TrackerEvent>();
         ISerializer mySerializer;
         StreamWriter writer;
-        public FilePersistence(ISerializer serializer,string route )
+        uint maxSizeQueue;
+        public FilePersistence(ISerializer serializer,string route, uint maxSizeQueue)
         {
+            this.maxSizeQueue = maxSizeQueue;
             writer = new StreamWriter(route);
             mySerializer = serializer;
         }
@@ -17,6 +19,13 @@ namespace TrackerG5
         public void Send(TrackerEvent e)
         {
             eventsQueue.Add(e);
+
+            if (eventsQueue.Count == maxSizeQueue)
+            {
+                Flush();
+                eventsQueue.Clear();
+            }
+
         }
 
         public void Flush()
@@ -32,6 +41,7 @@ namespace TrackerG5
         
         ~FilePersistence()
         {
+            Flush();
             closeFile();
         }
     }
