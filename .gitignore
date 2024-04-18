@@ -63,3 +63,7 @@ WrongAnswer_JamOn2023/UserSettings/Layouts/default-2021.dwlt
 *.dwlt
 *.dwlt
 *.dwlt
+
+
+#excepciones
+!TrackerG5.sln
