@@ -1,27 +1,38 @@
 ﻿using System;
+using System.IO;
 
 namespace TrackerG5
 {
     internal class FilePersistence : IPersistence
     {
-        List<string> eventsQueue = new List<string>();
-        Dictionary<ISerializer, List<string>> serializers;
-
-        public FilePersistence()
+        List<TrackerEvent> eventsQueue = new List<TrackerEvent>();
+        ISerializer mySerializer;
+        StreamWriter writer;
+        public FilePersistence(ISerializer serializer,string route = "../FileTracker")
         {
-
+            writer = new StreamWriter(route);
+            mySerializer = serializer;
         }
 
         public void Send(TrackerEvent e)
         {
-            //eventsQueue.Add();
+            eventsQueue.Add(e);
         }
 
         public void Flush()
         {
-            throw new NotImplementedException();
+            foreach (var item in eventsQueue){
+                 writer.WriteLine(mySerializer.Serialize(item));
+            }
         }
-
-
+        void closeFile()
+        {
+            writer.Close();
+        }
+        
+        ~FilePersistence()
+        {
+            closeFile();
+        }
     }
 }
