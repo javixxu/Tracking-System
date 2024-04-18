@@ -41,5 +41,6 @@ public class BossHealth : MonoBehaviour
     {
         this.gameObject.SetActive(false);
         GameManager.GetInstance().ChangeScene("MainMenu_Scene");
+        //TODO: Fin de Partido
     }
 }

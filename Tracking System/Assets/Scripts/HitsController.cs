@@ -56,12 +56,14 @@ public class HitsController : MonoBehaviour
             cam.Shake(1, 1f);
             if (shield.getActive()) {
                 shield.setActive(false);
+                //TODO: Evento lose shield
                 Debug.Log("SHIELD DOWN");
             }
             else{
                 Debug.Log("MUERTO");
                 gameManager.setGameOver(true);
                 shipController.setDeath(true);
+                //TODO: Evento muerte
             }
 
             cont = 0;

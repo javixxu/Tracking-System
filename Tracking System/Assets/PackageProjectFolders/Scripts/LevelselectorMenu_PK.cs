@@ -18,6 +18,14 @@ public class LevelselectorMenu_PK : MenuManager_PK
         if (index == nButtons-1) allMenuManager.BackButton();
 
         else
+        {
+            if(index +1 == 2)
+            {
+                //TODO: Evento inicio de partida
+            }
             GameManager.GetInstance().ChangeScene(index+1);
+           
+        }
+
     }
 }
