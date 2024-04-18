@@ -1,13 +1,16 @@
 ﻿using System;
-
+using System.Data;
+using System.Security.Cryptography;
+using System.Text;
 namespace TrackerG5
 {
     class Tracker
     {
         private static Tracker instance;
 
-        uint idUser;
-        uint idSession;
+        string idUser;
+        string idSession;
+        string idUserNameLocation="../ID_USER_TRACKER";
 
         HashSet<TrackerAsset> assets = new HashSet<TrackerAsset>();//lista de assets
 
@@ -24,18 +27,22 @@ namespace TrackerG5
             }
         }
 
+        private string GetUserID()
+        {
+            if(!File.Exists(idUserNameLocation))
+            {
+                File.WriteAllText(idUserNameLocation, CreateHashID(DateTime.Now.ToString()+new Random().Next()));
+            }
+
+            return File.ReadAllText(idUserNameLocation);
+        }
 
         public void Init() 
         { 
-            //el id del usuario
-            /*
-             * if(archivoExiste) 
-             *  id = load(archivo)
-             * else
-             *  id = generateHashUsuario
-             * */
-            //el id de sesion
-
+            idUser = GetUserID();
+            idSession = CreateHashID(idUser+DateTime.Now.ToString());
+            
+            Console.WriteLine("USER ID: " + idUser + " SESSION ID: " + idSession);
             //evento de inicio de sesion
             
         }
@@ -54,6 +61,20 @@ namespace TrackerG5
         }
         public void EnableTypeEvent(){
 
+        }
+        private string CreateHashID(string blockchain)
+        {
+            SHA256 sha256 = SHA256.Create();
+            byte[] bytes = Encoding.UTF8.GetBytes(blockchain);
+            bytes = sha256.ComputeHash(bytes);
+
+            StringBuilder builder = new StringBuilder();
+            for (int i = 0; i < bytes.Length; i++)
+            {
+                builder.Append(bytes[i].ToString("x2"));
+            }
+
+            return builder.ToString();
         }
     }
 }

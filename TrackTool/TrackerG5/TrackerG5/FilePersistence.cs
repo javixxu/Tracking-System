@@ -8,7 +8,7 @@ namespace TrackerG5
         List<TrackerEvent> eventsQueue = new List<TrackerEvent>();
         ISerializer mySerializer;
         StreamWriter writer;
-        public FilePersistence(ISerializer serializer,string route = "../FileTracker")
+        public FilePersistence(ISerializer serializer,string route )
         {
             writer = new StreamWriter(route);
             mySerializer = serializer;
