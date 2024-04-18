@@ -2,17 +2,13 @@
 
 namespace TrackerG5
 {
-    internal class LoseShieldAsset : ITrackerAsset
+    internal class LoseShieldAsset : TrackerAsset
     {
         public LoseShieldAsset()
-            
+
         {
 
         }
 
-        public bool accept(TrackerEvent e)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

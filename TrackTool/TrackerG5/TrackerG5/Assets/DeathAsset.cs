@@ -2,17 +2,12 @@
 
 namespace TrackerG5
 {
-    internal class DeathAsset: ITrackerAsset
+    internal class DeathAsset: TrackerAsset
     {
         public DeathAsset()
         
         {
 
-        }
-
-        public bool accept(TrackerEvent e)
-        {
-            throw new NotImplementedException();
         }
     }
 }

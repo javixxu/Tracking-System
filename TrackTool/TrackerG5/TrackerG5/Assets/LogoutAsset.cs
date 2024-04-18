@@ -2,17 +2,12 @@
 
 namespace TrackerG5
 {
-    internal class LogoutAsset : ITrackerAsset
+    internal class LogoutAsset : TrackerAsset
     {
         public LogoutAsset()
            
         {
 
-        }
-
-        public bool accept(TrackerEvent e)
-        {
-            throw new NotImplementedException();
         }
     }
 }

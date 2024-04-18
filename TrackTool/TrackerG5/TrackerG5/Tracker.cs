@@ -9,8 +9,9 @@ namespace TrackerG5
         uint idUser;
         uint idSession;
 
-        Tracker() { }
+        HashSet<TrackerAsset> assets = new HashSet<TrackerAsset>();//lista de assets
 
+        Tracker() { }
         public static Tracker Instance
         {
             get
@@ -45,6 +46,14 @@ namespace TrackerG5
             //evento de fin de inicio de sesion
 
             //guarda el id del usuario en disco
+        }
+
+        public void AddEvent()
+        {
+
+        }
+        public void EnableTypeEvent(){
+
         }
     }
 }

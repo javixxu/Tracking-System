@@ -2,17 +2,12 @@
 
 namespace TrackerG5
 {
-    internal class EndGameAsset : ITrackerAsset
+    internal class EndGameAsset : TrackerAsset
     {
         public EndGameAsset()
             
         {
 
-        }
-
-        public bool accept(TrackerEvent e)
-        {
-            throw new NotImplementedException();
         }
     }
 }
