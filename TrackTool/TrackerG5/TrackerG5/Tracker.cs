@@ -8,11 +8,16 @@ namespace TrackerG5
     {
         private static Tracker instance;
 
+
         string idUser;
         string idSession;
         string idUserNameLocation="../ID_USER_TRACKER";
 
+        const int size = 7;
+
+
         HashSet<TrackerAsset> assets = new HashSet<TrackerAsset>();//lista de assets
+        List<TrackerEvent> events = new List<TrackerEvent>();
 
         Tracker() { }
         public static Tracker Instance
@@ -27,6 +32,7 @@ namespace TrackerG5
             }
         }
 
+
         private string GetUserID()
         {
             if(!File.Exists(idUserNameLocation))
@@ -37,6 +43,26 @@ namespace TrackerG5
             return File.ReadAllText(idUserNameLocation);
         }
 
+        public TrackerEvent GetNextEvent()
+        {
+            if (events.Count > 0)
+            {
+                TrackerEvent e = events[0];
+                events.RemoveAt(0);
+                return e;
+            }
+     
+            return null;
+        }
+        public void AddEvent(TrackerEvent e)
+        {
+            events.Add(e);
+            if(events.Count >= size) 
+            { 
+
+
+            }
+        }
         public void Init() 
         { 
             idUser = GetUserID();
@@ -45,6 +71,9 @@ namespace TrackerG5
             Console.WriteLine("USER ID: " + idUser + " SESSION ID: " + idSession);
             //evento de inicio de sesion
             
+
+            //crear JSON
+       
         }
 
         public void End()
@@ -53,11 +82,6 @@ namespace TrackerG5
             //evento de fin de inicio de sesion
 
             //guarda el id del usuario en disco
-        }
-
-        public void AddEvent()
-        {
-
         }
         public void EnableTypeEvent(){
 
