@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Security.Cryptography;
+
+
 
 public class BossHealth : MonoBehaviour
 {
@@ -13,6 +16,7 @@ public class BossHealth : MonoBehaviour
     GameManager gameManager;
     Timer timer;
     bool killed = false;
+
     private void Start()
     {
         gameManager = GameManager.GetInstance();

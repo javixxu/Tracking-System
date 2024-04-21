@@ -1,7 +1,9 @@
 ﻿using System;
-using System.Data;
+using System.Collections.Generic;
+using System.IO;
 using System.Security.Cryptography;
 using System.Text;
+
 namespace TrackerG5
 {
     class Tracker
@@ -9,8 +11,8 @@ namespace TrackerG5
         private static Tracker instance;
         string idUser;
         string idSession;
-        string idUserNameLocation="../TrackerG5/ID_USER_TRACKER";
-        string resultLocation="../TrackerG5/RESULT";
+        string idUserNameLocation= "../Tracking System/Assets/Scripts/TRACKERG5/Data/ID_USER_TRACKER";
+        string resultLocation= "../Tracking System/Assets/Scripts/TRACKERG5/Data/RESULT";
 
         const int size = 7;
 
@@ -91,6 +93,7 @@ namespace TrackerG5
         {
             //evento de fin de inicio de sesion
             AddEvent(new LogoutEvent());
+            persistence.EndSession();
         }
 
         private string CreateHashID(string blockchain)
