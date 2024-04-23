@@ -12,7 +12,7 @@ namespace TrackerG5
         string idUser;
         string idSession;
         string idUserNameLocation= "../Tracking System/Assets/Scripts/TRACKERG5/Data/ID_USER_TRACKER";
-        string resultLocation= "../Tracking System/Assets/Scripts/TRACKERG5/Data/RESULT";
+        string resultLocation= "../Tracking System/Assets/Scripts/TRACKERG5/Data/RESULT.json";
 
         const int size = 7;
 

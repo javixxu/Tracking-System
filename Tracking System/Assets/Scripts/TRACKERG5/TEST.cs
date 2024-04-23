@@ -8,8 +8,8 @@ public class TEST : MonoBehaviour
     void Start()
     {
         TrackerG5.Tracker.Instance.Init(TrackerG5.Tracker.serializeType.Json, TrackerG5.Tracker.persistenceType.Disc);
-        TrackerG5.Tracker.Instance.AddEvent(new TrackerG5.LoginEvent());
-        TrackerG5.Tracker.Instance.AddEvent(new TrackerG5.DeathEvent());
+        //TrackerG5.Tracker.Instance.AddEvent(new TrackerG5.LoginEvent());
+        //TrackerG5.Tracker.Instance.AddEvent(new TrackerG5.DeathEvent());
         TrackerG5.Tracker.Instance.End();
     }
 
