@@ -46,6 +46,6 @@ public class BossHealth : MonoBehaviour
         this.gameObject.SetActive(false);
         GameManager.GetInstance().ChangeScene("MainMenu_Scene");
         //TODO: Fin de Partido
-        TrackerG5.Tracker.Instance.AddEvent(new TrackerG5.EndGameEvent());
+        TrackerG5.Tracker.Instance.AddEvent(TrackerG5.Tracker.eventType.Death);
     }
 }

@@ -57,7 +57,7 @@ public class HitsController : MonoBehaviour
             if (shield.getActive()) {
                 shield.setActive(false);
                 //TODO: Evento lose shield
-                TrackerG5.Tracker.Instance.AddEvent(new TrackerG5.LoseShieldEvent());
+                TrackerG5.Tracker.Instance.AddEvent(TrackerG5.Tracker.eventType.LoseShield);
                 Debug.Log("SHIELD DOWN");
             }
             else{
@@ -65,7 +65,7 @@ public class HitsController : MonoBehaviour
                 gameManager.setGameOver(true);
                 shipController.setDeath(true);
                 //TODO: Evento muerte
-                TrackerG5.Tracker.Instance.AddEvent(new TrackerG5.DeathEvent());
+                TrackerG5.Tracker.Instance.AddEvent(TrackerG5.Tracker.eventType.Death);
             }
 
             cont = 0;

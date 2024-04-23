@@ -8,6 +8,10 @@ namespace TrackerG5
 {
     internal class CsvSerializer : ISerializer
     {
+
+        bool d = false;
+
+
         public string Serialize(TrackerEvent e)
         {
 
