@@ -2,7 +2,9 @@
 
 namespace TrackerG5
 {
-    class StartGameEvent: TrackerEvent
+    [Serializable]
+
+    class StartGameEvent : TrackerEvent
     {
         
         public StartGameEvent()
