@@ -21,7 +21,7 @@ public class LevelselectorMenu_PK : MenuManager_PK
         {
             if(index +1 == 2)
             {
-                //TODO: Evento inicio de partida
+                TrackerG5.Tracker.Instance.AddEvent(new TrackerG5.StartGameEvent());
             }
             GameManager.GetInstance().ChangeScene(index+1);
            

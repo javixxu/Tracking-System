@@ -27,6 +27,7 @@ public class MainMenu_PK : MenuManager_PK
     void PressQuit()
     {
         //TODO: Evento fin de sesión
+        TrackerG5.Tracker.Instance.AddEvent(new TrackerG5.EndGameEvent());
         Application.Quit();
     }
 }

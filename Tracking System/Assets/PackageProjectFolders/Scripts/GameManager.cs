@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         //TODO: Evento inicio de sesión
+        TrackerG5.Tracker.Instance.Init(TrackerG5.Tracker.serializeType.Json, TrackerG5.Tracker.persistenceType.Disc);
+
         // Singleton
         if (instance == null) instance = this;
         else { Destroy(gameObject); return; }
