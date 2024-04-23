@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TrackerG5
 {
@@ -40,6 +41,11 @@ namespace TrackerG5
         {
             get { return timestamp; }
             set { timestamp = value; }
+        }
+
+        public void SetParamns(Dictionary<string, string> paramns)
+        {
+           
         }
 
 

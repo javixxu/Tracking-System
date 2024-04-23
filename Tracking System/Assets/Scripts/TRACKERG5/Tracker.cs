@@ -51,7 +51,7 @@ namespace TrackerG5
         }
 
 
-        public void AddEvent(eventType eventT)
+        public void AddEvent(eventType eventT, Dictionary<string,string> eventParameters = null)
         {
 
             TrackerEvent e = null;
@@ -76,6 +76,7 @@ namespace TrackerG5
             e.IdUser = idUser;
             e.IdSession = idSession;
             e.Timestamp = DateTime.Now;
+            e.SetParamns(eventParameters);
 
             persistence.Send(e);
         }
