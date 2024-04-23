@@ -34,26 +34,35 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         //TODO: Evento inicio de sesión
-        TrackerG5.Tracker.Instance.Init(TrackerG5.Tracker.serializeType.Json, TrackerG5.Tracker.persistenceType.Disc);
+        Debug.Log("a");
 
         // Singleton
         if (instance == null) instance = this;
         else { Destroy(gameObject); return; }
         DontDestroyOnLoad(gameObject);
 
+        TrackerG5.Tracker.Instance.Init(TrackerG5.Tracker.serializeType.Json, TrackerG5.Tracker.persistenceType.Disc);
+
         // Todos los elementos de la transicion empiezan inactivos
         level_Text.gameObject.SetActive(false);
         //levelNum_Text.gameObject.SetActive(false);
         icon.gameObject.SetActive(false);
     }
-   
-    public void restart(){
-        if (isGameOver()){
+
+    public void restart()
+    {
+        if (isGameOver())
+        {
             gameOver_bool = false;
             ChangeScene("level_1");
         }
     }
 
+    private void OnDestroy()
+    {
+        if (instance == this)
+            TrackerG5.Tracker.Instance.End();
+    }
 
     public void SetGameOverPanel(GameObject go)
     {
@@ -92,7 +101,8 @@ public class GameManager : MonoBehaviour
     {
         return gameOver_bool;
     }
-    public void setReward(int resultIndex){
+    public void setReward(int resultIndex)
+    {
         currentSkin = resultIndex;
     }
 
