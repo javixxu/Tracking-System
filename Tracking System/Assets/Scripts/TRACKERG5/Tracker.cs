@@ -20,8 +20,12 @@ namespace TrackerG5
         ISerializer serializer;
         HashSet<ITrackerAsset> assets = new HashSet<ITrackerAsset>();//lista de assets
   
-        public enum serializeType { Json};
+        public enum serializeType { Json, Csv};
         public enum persistenceType { Disc };
+        public enum eventType { StartGame, Endgame, Death, LoseShield  };
+
+
+
 
         Tracker() { }
         public static Tracker Instance
@@ -36,7 +40,6 @@ namespace TrackerG5
             }
         }
 
-
         private string GetUserID()
         {
             if(!File.Exists(idUserNameLocation))
@@ -48,8 +51,27 @@ namespace TrackerG5
         }
 
 
-        public void AddEvent(TrackerEvent e)
+        public void AddEvent(eventType eventT)
         {
+
+            TrackerEvent e = null;
+            switch (eventT)
+            {
+                case eventType.StartGame:
+                    e = new StartGameEvent();
+                    break;
+                case eventType.Endgame:
+                    e = new EndGameEvent();
+                    break;
+                case eventType.Death:
+                    e = new DeathEvent();
+                    break;
+                case eventType.LoseShield:
+                    e = new LoseShieldEvent();
+                    break;
+                default:
+                    break;
+            }
             e.Id = CreateHashID(idUser + DateTime.Now.ToString());
             e.IdUser = idUser;
             e.IdSession = idSession;
@@ -71,6 +93,9 @@ namespace TrackerG5
                 case serializeType.Json:
                     serializer = new JsonSerializer();
                     break;
+                case serializeType.Csv:
+                    serializer = new CsvSerializer(); 
+                    break;
                 default:
                     throw new Exception("Serializacion no valida");
             }
@@ -85,14 +110,27 @@ namespace TrackerG5
 
             };
 
-            AddEvent(new LoginEvent());
+            LoginEvent e = new LoginEvent();
+            e.Id = CreateHashID(idUser + DateTime.Now.ToString());
+            e.IdUser = idUser;
+            e.IdSession = idSession;
+            e.Timestamp = DateTime.Now;
+
+            persistence.Send(e);
 
         }
 
         public void End()
         {
             //evento de fin de inicio de sesion
-            AddEvent(new LogoutEvent());
+            LogoutEvent e = new LogoutEvent();
+            e.Id = CreateHashID(idUser + DateTime.Now.ToString());
+            e.IdUser = idUser;
+            e.IdSession = idSession;
+            e.Timestamp = DateTime.Now;
+
+            persistence.Send(e);
+
             persistence.EndSession();
         }
 

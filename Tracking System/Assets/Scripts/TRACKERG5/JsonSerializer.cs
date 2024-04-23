@@ -7,7 +7,6 @@ namespace TrackerG5
 {
     internal class JsonSerializer : ISerializer
     {
-        public JsonSerializer() {}
         public string Serialize(TrackerEvent e)
 
         {
