@@ -13,7 +13,7 @@ namespace TrackerG5
         public FilePersistence(ISerializer serializer,string route, uint maxSizeQueue)
         {
             this.maxSizeQueue = maxSizeQueue;
-            writer = new StreamWriter(route);
+            writer = new StreamWriter(route, true);
             mySerializer = serializer;
         }
 
