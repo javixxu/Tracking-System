@@ -11,7 +11,6 @@ namespace TrackerG5
 
         bool d = false;
 
-
         public string Serialize(TrackerEvent e)
         {
 
@@ -24,6 +23,15 @@ namespace TrackerG5
             }
 
             return csvBuilder.ToString();
+        }
+        public void OpenFile(FileStream fs)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void EndFile(FileStream fs)
+        {
+            throw new NotImplementedException();
         }
     }
 }
