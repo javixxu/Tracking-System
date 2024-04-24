@@ -2,36 +2,48 @@
 using System.IO;
 using System.Reflection;
 using System.Text;
+using static UnityEditor.Progress;
 
 
 namespace TrackerG5
 {
     internal class CsvSerializer : ISerializer
     {
-
-        bool d = false;
-
         public string Serialize(TrackerEvent e)
         {
-
-            StringBuilder csvBuilder = new StringBuilder();
+            string csvProperties = "";
 
             PropertyInfo[] properties = e.GetType().GetProperties();
             foreach (PropertyInfo property in properties)
             {
-                csvBuilder.AppendLine($"{property.Name},{property.GetValue(e)}");
+                csvProperties += property.GetValue(e) + ",";
             }
-
-            return csvBuilder.ToString();
+            csvProperties = csvProperties.Substring(0, csvProperties.Length - 1) + '\n';
+            return csvProperties;
         }
         public void OpenFile(FileStream fs)
         {
-            throw new NotImplementedException();
+            if (fs.Length <= 0)
+            {
+                fs.Seek(0, SeekOrigin.Begin);
+                string csvProperties = "";
+
+                PropertyInfo[] properties = new TrackerEvent().GetType().GetProperties();
+                foreach (PropertyInfo property in properties)
+                {
+                    csvProperties += property.Name+",";
+                }
+                csvProperties = csvProperties.Substring(0, csvProperties.Length - 1) + '\n';
+
+                byte[] data = Encoding.UTF8.GetBytes(csvProperties);
+                fs.Write(data, 0, data.Length);
+            }
+            
+            fs.Seek(0, SeekOrigin.End);
         }
 
         public void EndFile(FileStream fs)
         {
-            throw new NotImplementedException();
         }
     }
 }

@@ -15,7 +15,7 @@ namespace TrackerG5
             this.maxSizeQueue = maxSizeQueue;
             mySerializer = serializer;
 
-            fs = new FileStream(route, FileMode.Open, FileAccess.ReadWrite);
+            fs = new FileStream(route, FileMode.OpenOrCreate, FileAccess.ReadWrite);
             mySerializer.OpenFile(fs);
         }
 

@@ -12,7 +12,7 @@ namespace TrackerG5
         string idUser;
         string idSession;
         string idUserNameLocation= "../Tracking System/Assets/Scripts/TRACKERG5/Data/ID_USER_TRACKER";
-        string resultLocation= "../Tracking System/Assets/Scripts/TRACKERG5/Data/RESULT.json";
+        string resultLocation= "";
 
         const int size = 7;
 
@@ -93,9 +93,11 @@ namespace TrackerG5
             {
                 case serializeType.Json:
                     serializer = new JsonSerializer();
+                    resultLocation = "../Tracking System/Assets/Scripts/TRACKERG5/Data/RESULT.json";
                     break;
                 case serializeType.Csv:
-                    serializer = new CsvSerializer(); 
+                    serializer = new CsvSerializer();
+                    resultLocation = "../Tracking System/Assets/Scripts/TRACKERG5/Data/RESULT.csv";
                     break;
                 default:
                     throw new Exception("Serializacion no valida");

@@ -7,7 +7,7 @@ public class TEST : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TrackerG5.Tracker.Instance.Init(TrackerG5.Tracker.serializeType.Json, TrackerG5.Tracker.persistenceType.Disc);
+        TrackerG5.Tracker.Instance.Init(TrackerG5.Tracker.serializeType.Csv, TrackerG5.Tracker.persistenceType.Disc);
         TrackerG5.Tracker.Instance.AddEvent(TrackerG5.Tracker.eventType.LoseShield);
         TrackerG5.Tracker.Instance.AddEvent(TrackerG5.Tracker.eventType.Death);
         TrackerG5.Tracker.Instance.End();
