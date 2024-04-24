@@ -18,7 +18,7 @@ namespace TrackerG5
             {
                 csvProperties += property.GetValue(e) + ",";
             }
-            csvProperties = csvProperties.Substring(0, csvProperties.Length - 1) + '\n';
+            csvProperties += e.GetType().Name + '\n';
             return csvProperties;
         }
         public void OpenFile(FileStream fs)
@@ -33,7 +33,8 @@ namespace TrackerG5
                 {
                     csvProperties += property.Name+",";
                 }
-                csvProperties = csvProperties.Substring(0, csvProperties.Length - 1) + '\n';
+                
+                csvProperties += "EventType\n";
 
                 byte[] data = Encoding.UTF8.GetBytes(csvProperties);
                 fs.Write(data, 0, data.Length);

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.TRACKERG5;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
@@ -20,7 +21,7 @@ namespace TrackerG5
         ISerializer serializer;
         HashSet<ITrackerAsset> assets = new HashSet<ITrackerAsset>();//lista de assets
   
-        public enum serializeType { Json, Csv};
+        public enum serializeType { Json, Csv, Yaml};
         public enum persistenceType { Disc };
         public enum eventType { StartGame, Endgame, Death, LoseShield  };
 
@@ -98,6 +99,10 @@ namespace TrackerG5
                 case serializeType.Csv:
                     serializer = new CsvSerializer();
                     resultLocation = "../Tracking System/Assets/Scripts/TRACKERG5/Data/RESULT.csv";
+                    break;
+                case serializeType.Yaml:
+                    serializer = new YamlSerializer();
+                    resultLocation = "../Tracking System/Assets/Scripts/TRACKERG5/Data/RESULT.yaml";
                     break;
                 default:
                     throw new Exception("Serializacion no valida");
