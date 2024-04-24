@@ -34,8 +34,7 @@ namespace TrackerG5
                 // Truncar el archivo para eliminar el último carácter
                 fs.SetLength(fs.Position);
 
-                byte[] data = Encoding.UTF8.GetBytes(",");
-                fs.Write(data, 0, data.Length);
+                fs.WriteByte((byte)',');
             }
             fs.Seek(0, SeekOrigin.End);
         }
