@@ -1,4 +1,9 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 
 namespace TrackerG5
 {
@@ -6,8 +11,6 @@ namespace TrackerG5
     {
         string Serialize(TrackerEvent e);
 
-        void OpenFile(FileStream fs);
 
-        void EndFile(FileStream fs);
     }
 }

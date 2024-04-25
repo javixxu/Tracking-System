@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.IO;
-using System.Text;
 
 namespace TrackerG5
 {
@@ -8,15 +7,13 @@ namespace TrackerG5
     {
         List<TrackerEvent> eventsQueue = new List<TrackerEvent>();
         ISerializer mySerializer;
-        FileStream fs;
+        StreamWriter writer;
         uint maxSizeQueue;
         public FilePersistence(ISerializer serializer,string route, uint maxSizeQueue)
         {
             this.maxSizeQueue = maxSizeQueue;
+            writer = new StreamWriter(route);
             mySerializer = serializer;
-
-            fs = new FileStream(route, FileMode.OpenOrCreate, FileAccess.ReadWrite);
-            mySerializer.OpenFile(fs);
         }
 
         public void Send(TrackerEvent e)
@@ -34,17 +31,15 @@ namespace TrackerG5
         public void Flush()
         {
             foreach (var item in eventsQueue){
-                byte[] data = Encoding.UTF8.GetBytes(mySerializer.Serialize(item));
-                fs.Write(data, 0, data.Length);
+                 writer.WriteLine(mySerializer.Serialize(item));
             }
         }
         void closeFile()
         {
-            mySerializer.EndFile(fs);
-            fs.Close();
+            writer.Close();
         }
         
-        public void EndSession()
+        ~FilePersistence()
         {
             Flush();
             closeFile();

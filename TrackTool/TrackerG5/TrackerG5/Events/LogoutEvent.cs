@@ -2,8 +2,6 @@
 
 namespace TrackerG5
 {
-    [Serializable]
-
     internal class LogoutEvent: TrackerEvent
     {
         public LogoutEvent()

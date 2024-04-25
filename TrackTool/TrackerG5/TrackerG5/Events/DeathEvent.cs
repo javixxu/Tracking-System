@@ -2,7 +2,6 @@
 
 namespace TrackerG5
 {
-    [Serializable]
     class DeathEvent : TrackerEvent
     {
         public DeathEvent()

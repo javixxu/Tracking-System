@@ -2,9 +2,7 @@
 
 namespace TrackerG5
 {
-    [Serializable]
-
-    class LoseShieldEvent : TrackerEvent
+    class LoseShieldEvent: TrackerEvent
     {
         public LoseShieldEvent()
             : base()

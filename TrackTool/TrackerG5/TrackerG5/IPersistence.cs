@@ -11,7 +11,5 @@ namespace TrackerG5
         void Send(TrackerEvent e);
 
         void Flush();
-
-        void EndSession();
     }
 }

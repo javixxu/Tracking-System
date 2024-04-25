@@ -1,5 +1,60 @@
 - IdUser: 49562dc51f833b120a5fa281ca787e3eb4be7369402b1eb72eb7453e172e20b8
   Sessions:
+  - IdSession: c35ac099cf2c6403104bd8675a4dfd63e84d9515ad0ee351262f90a479c8b0d2
+    Events:
+      - Id: 1d649c23283de96e17bc2aa8f5c2b131885d2e79647dec73f5ad08c9f636d60a
+        IdLevel: 0
+        Timestamp: 24/04/2024 17:58:17
+      - Id: 1d649c23283de96e17bc2aa8f5c2b131885d2e79647dec73f5ad08c9f636d60a
+        IdLevel: 0
+        Timestamp: 24/04/2024 17:58:17
+      - Id: 1d649c23283de96e17bc2aa8f5c2b131885d2e79647dec73f5ad08c9f636d60a
+        IdLevel: 0
+        Timestamp: 24/04/2024 17:58:17
+      - Id: 1d649c23283de96e17bc2aa8f5c2b131885d2e79647dec73f5ad08c9f636d60a
+        IdLevel: 0
+        Timestamp: 24/04/2024 17:58:17
+
+  - IdSession: c9f7dd50eeb6e0e0b93b8253b2bf659016c804640ea05ebebb290e796111a7c6
+    Events:
+      - Id: c427b2faec55e52b2ab97926eda744207f4bd9ed6abe78c51b388bbf3576eaf6
+        IdLevel: 0
+        Timestamp: 24/04/2024 17:59:18
+        TypeEvent: LoginEvent
+      - Id: c427b2faec55e52b2ab97926eda744207f4bd9ed6abe78c51b388bbf3576eaf6
+        IdLevel: 0
+        Timestamp: 24/04/2024 17:59:18
+        TypeEvent: LoseShieldEvent
+      - Id: c427b2faec55e52b2ab97926eda744207f4bd9ed6abe78c51b388bbf3576eaf6
+        IdLevel: 0
+        Timestamp: 24/04/2024 17:59:18
+        TypeEvent: DeathEvent
+      - Id: c427b2faec55e52b2ab97926eda744207f4bd9ed6abe78c51b388bbf3576eaf6
+        IdLevel: 0
+        Timestamp: 24/04/2024 17:59:18
+        TypeEvent: LogoutEvent
+
+  - IdSession: ea5b770c28db62403ed0d2cbcf7ad1e50e15d3a2f9a9a45702c5dd4f9e4cc5b7
+    Events:
+      - Id: 297b6884f60b7126b68fe06ee9712d75dc970b6b6461b03762e0959970a2edb2
+        TypeEvent: LoginEvent
+        IdLevel: 0
+        Timestamp: 24/04/2024 18:05:08
+      - Id: 297b6884f60b7126b68fe06ee9712d75dc970b6b6461b03762e0959970a2edb2
+        TypeEvent: LoseShieldEvent
+        IdLevel: 0
+        Timestamp: 24/04/2024 18:05:08
+      - Id: 297b6884f60b7126b68fe06ee9712d75dc970b6b6461b03762e0959970a2edb2
+        TypeEvent: DeathEvent
+        IdLevel: 0
+        Timestamp: 24/04/2024 18:05:08
+      - Id: 297b6884f60b7126b68fe06ee9712d75dc970b6b6461b03762e0959970a2edb2
+        TypeEvent: LogoutEvent
+        IdLevel: 0
+        Timestamp: 24/04/2024 18:05:08
+
+- IdUser: 49562dc51f833b120a5fa281ca787e3eb4be7369402b1eb72eb7453e172e20b8
+  Sessions:
   - IdSession: 457cb28da5b8084deb8588e66adec43ad73ddd44b051c1a29943fe81840f0c9c
     Events:
       - Id: 2df13e78b96891ccebf0647f06141837f83044a76dc539727fb30c6c59c1170c

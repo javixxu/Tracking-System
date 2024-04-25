@@ -2,8 +2,7 @@
 
 namespace TrackerG5
 {
-    [Serializable]
-    class EndGameEvent : TrackerEvent
+     class EndGameEvent : TrackerEvent
     {
         public EndGameEvent()
             : base()
