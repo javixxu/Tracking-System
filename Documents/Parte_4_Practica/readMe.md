@@ -5,6 +5,7 @@ Se realizan en un Jupyter Notebook.
 ### Requerimientos
 
 - Python >=3.8.
+- matplotlib==3.7.2
 - Abrir Jupyter-lab
 - Anaconda (opcional pero más cómodo)
 
