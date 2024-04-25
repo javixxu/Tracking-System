@@ -5,7 +5,6 @@ namespace TrackerG5
     internal class DeathAsset: ITrackerAsset
     {
         public DeathAsset()
-        
         {
 
         }
