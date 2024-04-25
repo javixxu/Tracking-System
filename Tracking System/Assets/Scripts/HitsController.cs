@@ -56,7 +56,7 @@ public class HitsController : MonoBehaviour
             cam.Shake(1, 1f);
             if (shield.getActive()) {
                 shield.setActive(false);
-                //TODO: Evento lose shield
+                // Evento de perdida de escudo
                 TrackerG5.Tracker.Instance.AddEvent(TrackerG5.Tracker.eventType.LoseShield);
                 Debug.Log("SHIELD DOWN");
             }

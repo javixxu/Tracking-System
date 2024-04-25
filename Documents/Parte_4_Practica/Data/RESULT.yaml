@@ -1,0 +1,20 @@
+- IdUser: 49562dc51f833b120a5fa281ca787e3eb4be7369402b1eb72eb7453e172e20b8
+  Sessions:
+  - IdSession: 457cb28da5b8084deb8588e66adec43ad73ddd44b051c1a29943fe81840f0c9c
+    Events:
+      - Id: 2df13e78b96891ccebf0647f06141837f83044a76dc539727fb30c6c59c1170c
+        TypeEvent: LoginEvent
+        IdLevel: 0
+        Timestamp: 24/04/2024 18:20:00
+      - Id: 2df13e78b96891ccebf0647f06141837f83044a76dc539727fb30c6c59c1170c
+        TypeEvent: LoseShieldEvent
+        IdLevel: 0
+        Timestamp: 24/04/2024 18:20:00
+      - Id: 2df13e78b96891ccebf0647f06141837f83044a76dc539727fb30c6c59c1170c
+        TypeEvent: DeathEvent
+        IdLevel: 0
+        Timestamp: 24/04/2024 18:20:00
+      - Id: 2df13e78b96891ccebf0647f06141837f83044a76dc539727fb30c6c59c1170c
+        TypeEvent: LogoutEvent
+        IdLevel: 0
+        Timestamp: 24/04/2024 18:20:00

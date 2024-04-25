@@ -33,8 +33,7 @@ public class GameManager : MonoBehaviour
     public static GameManager GetInstance() { return instance; }
     private void Awake()
     {
-        //TODO: Evento inicio de sesión
-        Debug.Log("a");
+        //Debug.Log("a");
 
         // Singleton
         if (instance == null) instance = this;
