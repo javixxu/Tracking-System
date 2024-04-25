@@ -1,7 +1,10 @@
-﻿using System;
-using System.Data;
+﻿using Assets.Scripts.TRACKERG5;
+using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Security.Cryptography;
 using System.Text;
+
 namespace TrackerG5
 {
     class Tracker
@@ -9,8 +12,8 @@ namespace TrackerG5
         private static Tracker instance;
         string idUser;
         string idSession;
-        string idUserNameLocation="../TrackerG5/ID_USER_TRACKER";
-        string resultLocation="../TrackerG5/RESULT";
+        string idUserNameLocation= "../Tracking System/Assets/Scripts/TRACKERG5/Data/ID_USER_TRACKER";
+        string resultLocation= "";
 
         const int size = 7;
 
@@ -18,8 +21,12 @@ namespace TrackerG5
         ISerializer serializer;
         HashSet<ITrackerAsset> assets = new HashSet<ITrackerAsset>();//lista de assets
   
-        public enum serializeType { Json};
+        public enum serializeType { Json, Csv, Yaml};
         public enum persistenceType { Disc };
+        public enum eventType { StartGame, Endgame, Death, LoseShield  };
+
+
+
 
         Tracker() { }
         public static Tracker Instance
@@ -34,7 +41,6 @@ namespace TrackerG5
             }
         }
 
-
         private string GetUserID()
         {
             if(!File.Exists(idUserNameLocation))
@@ -46,12 +52,32 @@ namespace TrackerG5
         }
 
 
-        public void AddEvent(TrackerEvent e)
+        public void AddEvent(eventType eventT, Dictionary<string,string> eventParameters = null)
         {
+
+            TrackerEvent e = null;
+            switch (eventT)
+            {
+                case eventType.StartGame:
+                    e = new StartGameEvent();
+                    break;
+                case eventType.Endgame:
+                    e = new EndGameEvent();
+                    break;
+                case eventType.Death:
+                    e = new DeathEvent();
+                    break;
+                case eventType.LoseShield:
+                    e = new LoseShieldEvent();
+                    break;
+                default:
+                    break;
+            }
             e.Id = CreateHashID(idUser + DateTime.Now.ToString());
             e.IdUser = idUser;
             e.IdSession = idSession;
             e.Timestamp = DateTime.Now;
+            e.SetParamns(eventParameters);
 
             persistence.Send(e);
         }
@@ -68,6 +94,15 @@ namespace TrackerG5
             {
                 case serializeType.Json:
                     serializer = new JsonSerializer();
+                    resultLocation = "../Tracking System/Assets/Scripts/TRACKERG5/Data/RESULT.json";
+                    break;
+                case serializeType.Csv:
+                    serializer = new CsvSerializer();
+                    resultLocation = "../Tracking System/Assets/Scripts/TRACKERG5/Data/RESULT.csv";
+                    break;
+                case serializeType.Yaml:
+                    serializer = new YamlSerializer();
+                    resultLocation = "../Tracking System/Assets/Scripts/TRACKERG5/Data/RESULT.yaml";
                     break;
                 default:
                     throw new Exception("Serializacion no valida");
@@ -83,14 +118,28 @@ namespace TrackerG5
 
             };
 
-            AddEvent(new LoginEvent());
+            LoginEvent e = new LoginEvent();
+            e.Id = CreateHashID(idUser + DateTime.Now.ToString());
+            e.IdUser = idUser;
+            e.IdSession = idSession;
+            e.Timestamp = DateTime.Now;
+
+            persistence.Send(e);
 
         }
 
         public void End()
         {
             //evento de fin de inicio de sesion
-            AddEvent(new LogoutEvent());
+            LogoutEvent e = new LogoutEvent();
+            e.Id = CreateHashID(idUser + DateTime.Now.ToString());
+            e.IdUser = idUser;
+            e.IdSession = idSession;
+            e.Timestamp = DateTime.Now;
+
+            persistence.Send(e);
+
+            persistence.EndSession();
         }
 
         private string CreateHashID(string blockchain)

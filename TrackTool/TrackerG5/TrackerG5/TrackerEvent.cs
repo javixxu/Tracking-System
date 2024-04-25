@@ -1,40 +1,51 @@
 ﻿using System;
-//using System.Runtime.InteropServices.Marshalling;
+using System.Collections.Generic;
 
 namespace TrackerG5
 {
+    [Serializable]
     internal class TrackerEvent
-    {
+    { 
         protected string typeEvent;
+        
         string id;
         public string Id
         {
             get { return id; }
             set { id = value; }
         }
+
         string idUser;
         public string IdUser
         {
             get { return idUser; }
             set { idUser = value; }
         }
+
         string idSession;
         public string IdSession
         {
             get { return idSession; }
             set { idSession = value; }
         }
+
         uint idLevel;
         public uint IdLevel
         {
             get { return idLevel; }
             set { idLevel = value; }
         }
+
         DateTime timestamp;
         public DateTime Timestamp
         {
             get { return timestamp; }
             set { timestamp = value; }
+        }
+
+        public void SetParamns(Dictionary<string, string> paramns)
+        {
+           
         }
 
 
@@ -50,7 +61,7 @@ namespace TrackerG5
 
         public string ToJson()
         {
-            return "javichu juapo == null";
+            return "";
         }
     }
 }
