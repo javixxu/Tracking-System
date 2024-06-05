@@ -25,9 +25,6 @@ namespace TrackerG5
         public enum persistenceType { Disc };
         public enum eventType { StartGame, Endgame, Death, LoseShield  };
 
-
-
-
         Tracker() { }
         public static Tracker Instance
         {
