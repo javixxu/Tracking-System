@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Net.NetworkInformation;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -12,18 +14,19 @@ namespace TrackerG5
         private static Tracker instance;
         string idUser;
         string idSession;
-        string idUserNameLocation= "../Tracking System/Assets/Scripts/TRACKERG5/Data/ID_USER_TRACKER";
-        string resultLocation= "";
+        //BORRAR EN CASO DE QUE LA CREACIÓN DE USERID NUEVA SEA LA CORRECTA
+        //string idUserNameLocation= "../Tracking System/Assets/Scripts/TRACKERG5/Data/ID_USER_TRACKER";
+        string resultLocation = "";
 
         const int size = 7;
 
         IPersistence persistence;
         ISerializer serializer;
         HashSet<ITrackerAsset> assets = new HashSet<ITrackerAsset>();//lista de assets
-  
-        public enum serializeType { Json, Csv, Yaml};
+
+        public enum serializeType { Json, Csv, Yaml };
         public enum persistenceType { Disc };
-        public enum eventType { StartGame, Endgame, Death, LoseShield  };
+        public enum eventType { StartGame, Endgame, Death, LoseShield };
 
         Tracker() { }
         public static Tracker Instance
@@ -38,18 +41,44 @@ namespace TrackerG5
             }
         }
 
+        //BORRAR EN CASO DE QUE LA CREACIÓN DE USERID NUEVA SEA LA CORRECTA
+        //private string GetUserID()
+        //{
+        //    if(!File.Exists(idUserNameLocation))
+        //    {
+        //        File.WriteAllText(idUserNameLocation, CreateHashID(DateTime.Now.ToString()+new Random().Next()));
+        //    }
+
+        //    return File.ReadAllText(idUserNameLocation);
+        //}
+
         private string GetUserID()
         {
-            if(!File.Exists(idUserNameLocation))
-            {
-                File.WriteAllText(idUserNameLocation, CreateHashID(DateTime.Now.ToString()+new Random().Next()));
-            }
+            string machineName = Environment.MachineName;
+            string macAddress = GetMacAddress();
+            string nameUser = machineName + macAddress;
 
-            return File.ReadAllText(idUserNameLocation);
+            SHA256 sha256 = SHA256.Create();
+            byte[] hashBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(nameUser));
+
+            return new Guid(hashBytes.Take(16).ToArray()).ToString("N");
         }
 
+        private string GetMacAddress()
+        {
+            string macAddress = NetworkInterface
+                .GetAllNetworkInterfaces()
+                .Where(nic => nic.OperationalStatus == OperationalStatus.Up)
+                .Select(nic => nic.GetPhysicalAddress().ToString())
+                .FirstOrDefault();
 
-        public void AddEvent(eventType eventT, Dictionary<string,string> eventParameters = null)
+            if (string.IsNullOrEmpty(macAddress))
+                macAddress = "00:00:00:00:00:00";
+
+            return macAddress;
+        }
+
+        public void AddEvent(eventType eventT, Dictionary<string, string> eventParameters = null)
         {
 
             TrackerEvent e = null;
@@ -79,15 +108,14 @@ namespace TrackerG5
             persistence.Send(e);
         }
 
-        public void Init(serializeType sT, persistenceType pT) 
-        { 
+        public void Init(serializeType sT, persistenceType pT)
+        {
             idUser = GetUserID();
-            idSession = CreateHashID(idUser+DateTime.Now.ToString() + "tracker");
-            
+            idSession = CreateHashID(idUser + DateTime.Now.ToString() + "tracker");
+
             Console.WriteLine("USER ID: " + idUser + " SESSION ID: " + idSession);
             //evento de inicio de sesion
-            
-            switch(sT)
+            switch (sT)
             {
                 case serializeType.Json:
                     serializer = new JsonSerializer();
