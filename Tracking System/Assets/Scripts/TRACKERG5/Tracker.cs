@@ -14,8 +14,6 @@ namespace TrackerG5
         private static Tracker instance;
         string idUser;
         string idSession;
-        //BORRAR EN CASO DE QUE LA CREACIÓN DE USERID NUEVA SEA LA CORRECTA
-        //string idUserNameLocation= "../Tracking System/Assets/Scripts/TRACKERG5/Data/ID_USER_TRACKER";
         string resultLocation = "";
 
         const int size = 7;
@@ -40,17 +38,6 @@ namespace TrackerG5
                 return instance;
             }
         }
-
-        //BORRAR EN CASO DE QUE LA CREACIÓN DE USERID NUEVA SEA LA CORRECTA
-        //private string GetUserID()
-        //{
-        //    if(!File.Exists(idUserNameLocation))
-        //    {
-        //        File.WriteAllText(idUserNameLocation, CreateHashID(DateTime.Now.ToString()+new Random().Next()));
-        //    }
-
-        //    return File.ReadAllText(idUserNameLocation);
-        //}
 
         private string GetUserID()
         {
@@ -102,7 +89,7 @@ namespace TrackerG5
             e.Id = CreateHashID(idUser + DateTime.Now.ToString());
             e.IdUser = idUser;
             e.IdSession = idSession;
-            e.Timestamp = DateTime.Now;
+            e.Timestamp = getTimeStamp();
             e.SetParamns(eventParameters);
 
             persistence.Send(e);
@@ -147,7 +134,7 @@ namespace TrackerG5
             e.Id = CreateHashID(idUser + DateTime.Now.ToString());
             e.IdUser = idUser;
             e.IdSession = idSession;
-            e.Timestamp = DateTime.Now;
+            e.Timestamp = getTimeStamp();
 
             persistence.Send(e);
 
@@ -160,7 +147,7 @@ namespace TrackerG5
             e.Id = CreateHashID(idUser + DateTime.Now.ToString());
             e.IdUser = idUser;
             e.IdSession = idSession;
-            e.Timestamp = DateTime.Now;
+            e.Timestamp = getTimeStamp();
 
             persistence.Send(e);
 
@@ -180,6 +167,11 @@ namespace TrackerG5
             }
 
             return builder.ToString();
+        }
+
+        private long getTimeStamp()
+        {
+            return (DateTime.Now.Ticks - new DateTime(1970, 1, 1).Ticks) / TimeSpan.TicksPerMillisecond;
         }
     }
 }
