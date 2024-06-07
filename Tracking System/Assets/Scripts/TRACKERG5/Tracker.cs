@@ -86,7 +86,7 @@ namespace TrackerG5
                 default:
                     break;
             }
-            e.Id = CreateHashID(idUser + DateTime.Now.ToString());
+            e.Id = CreateHashID(idUser + getTimeStamp());
             e.IdUser = idUser;
             e.IdSession = idSession;
             e.Timestamp = getTimeStamp();
@@ -98,7 +98,7 @@ namespace TrackerG5
         public void Init(serializeType sT, persistenceType pT)
         {
             idUser = GetUserID();
-            idSession = CreateHashID(idUser + DateTime.Now.ToString() + "tracker");
+            idSession = CreateHashID(idUser + getTimeStamp());
 
             Console.WriteLine("USER ID: " + idUser + " SESSION ID: " + idSession);
             //evento de inicio de sesion
@@ -131,7 +131,7 @@ namespace TrackerG5
             };
 
             LoginEvent e = new LoginEvent();
-            e.Id = CreateHashID(idUser + DateTime.Now.ToString());
+            e.Id = CreateHashID(idUser + getTimeStamp());
             e.IdUser = idUser;
             e.IdSession = idSession;
             e.Timestamp = getTimeStamp();
@@ -144,7 +144,7 @@ namespace TrackerG5
         {
             //evento de fin de inicio de sesion
             LogoutEvent e = new LogoutEvent();
-            e.Id = CreateHashID(idUser + DateTime.Now.ToString());
+            e.Id = CreateHashID(idUser + getTimeStamp());
             e.IdUser = idUser;
             e.IdSession = idSession;
             e.Timestamp = getTimeStamp();
@@ -171,7 +171,7 @@ namespace TrackerG5
 
         private long getTimeStamp()
         {
-            return (DateTime.Now.Ticks - new DateTime(1970, 1, 1).Ticks) / TimeSpan.TicksPerMillisecond;
+            return DateTimeOffset.UtcNow.ToUnixTimeSeconds();
         }
     }
 }
