@@ -24,7 +24,7 @@ namespace TrackerG5
         {
             try
             {
-                fs = new FileStream(route, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+                fs = new FileStream(route, FileMode.Create, FileAccess.ReadWrite);
 
                 //Esto habría que quitarlo ya que el archivo tambien lo tiene que abrir FilePersistencie
                 mySerializer.OpenFile(fs);

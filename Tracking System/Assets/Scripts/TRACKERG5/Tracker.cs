@@ -106,15 +106,15 @@ namespace TrackerG5
             {
                 case serializeType.Json:
                     serializer = new JsonSerializer();
-                    resultLocation = "../Tracking System/Assets/Scripts/TRACKERG5/Data/RESULT.json";
+                    resultLocation = "../Tracking System/Assets/Scripts/TRACKERG5/Data/RESULT" + getTimeStamp().ToString() + ".json";
                     break;
                 case serializeType.Csv:
                     serializer = new CsvSerializer();
-                    resultLocation = "../Tracking System/Assets/Scripts/TRACKERG5/Data/RESULT.csv";
+                    resultLocation = "../Tracking System/Assets/Scripts/TRACKERG5/Data/RESULT" + getTimeStamp().ToString() + ".csv";
                     break;
                 case serializeType.Yaml:
                     serializer = new YamlSerializer();
-                    resultLocation = "../Tracking System/Assets/Scripts/TRACKERG5/Data/RESULT.yaml";
+                    resultLocation = "../Tracking System/Assets/Scripts/TRACKERG5/Data/RESULT" + getTimeStamp().ToString() + ".yaml";
                     break;
                 default:
                     throw new Exception("Serializacion no valida");
