@@ -5,8 +5,10 @@ namespace TrackerG5
 {
     internal class JsonSerializer : ISerializer
     {
-        public string Serialize(TrackerEvent e)
 
+        private bool firstEvent = true;
+
+        public string Serialize(TrackerEvent e)
         {
             MemoryStream stream = new MemoryStream();
             DataContractJsonSerializer jsonObj = new DataContractJsonSerializer(e.GetType());
@@ -15,7 +17,14 @@ namespace TrackerG5
             stream.Seek(0, SeekOrigin.Begin);
             StreamReader streamReader = new StreamReader(stream);
 
-            return "\n" + streamReader.ReadToEnd() + ",";
+            if (!firstEvent)
+                return "," + "\n" + streamReader.ReadToEnd();
+            else
+            {
+                firstEvent = false;
+                return "\n" + streamReader.ReadToEnd();
+            }
+         
         }
 
         public string OpenFile()

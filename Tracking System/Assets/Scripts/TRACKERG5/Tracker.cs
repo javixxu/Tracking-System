@@ -101,7 +101,8 @@ namespace TrackerG5
             idSession = CreateHashID(idUser + getTimeStamp());
 
             Console.WriteLine("USER ID: " + idUser + " SESSION ID: " + idSession);
-            resultLocation = "../Tracking System/Assets/Scripts/TRACKERG5/Data/" + idUser + "-" + idSession;
+            // resultLocation = "../Tracking System/Assets/Scripts/TRACKERG5/Data/" + idUser + "-" + idSession;
+            resultLocation = "../Tracking System/Assets/Scripts/TRACKERG5/Data/Result" + getTimeStamp();
             //evento de inicio de sesion
             switch (sT)
             {
