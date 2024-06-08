@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DG.Tweening.Plugins.Core.PathCore;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -9,7 +10,7 @@ namespace TrackerG5
     {
         List<TrackerEvent> eventsQueue = new List<TrackerEvent>();
         ISerializer mySerializer;
-        FileStream fs;
+        StreamWriter writer;
         uint maxSizeQueue;
 
         public FilePersistence(ISerializer serializer, string route, uint maxSizeQueue)
@@ -24,10 +25,10 @@ namespace TrackerG5
         {
             try
             {
-                fs = new FileStream(route, FileMode.Create, FileAccess.ReadWrite);
+                 writer = new StreamWriter(route);
 
                 //Esto habría que quitarlo ya que el archivo tambien lo tiene que abrir FilePersistencie
-                mySerializer.OpenFile(fs);
+                writer.Write(mySerializer.OpenFile());
                 return true;
             }
             catch (Exception ex)
@@ -53,14 +54,13 @@ namespace TrackerG5
         {
             foreach (var item in eventsQueue)
             {
-                byte[] data = Encoding.UTF8.GetBytes(mySerializer.Serialize(item));
-                fs.Write(data, 0, data.Length);
+                writer.Write(mySerializer.Serialize(item));
             }
         }
         void closeFile()
         {
-            mySerializer.EndFile(fs);
-            fs.Close();
+            writer.Write(mySerializer.EndFile());
+            writer.Close();
         }
 
         public void EndSession()

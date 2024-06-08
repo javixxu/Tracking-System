@@ -29,38 +29,38 @@ namespace Assets.Scripts.TRACKERG5
             if (old_IdUser != e.IdUser) { //ID DE USUARIO
                 csvBuilder.AppendLine($"- IdUser: {e.IdUser}");
                 old_IdUser = e.IdUser;
-
-                csvBuilder.AppendLine("  Sessions:");
             }
 
             if(old_IdSession != e.IdSession) //ID DE SESSION
             {
-                csvBuilder.AppendLine($"  - IdSession: {e.IdSession}");
+                csvBuilder.AppendLine($" - IdSession: {e.IdSession}");
                 old_IdSession= e.IdSession;
-                csvBuilder.AppendLine("    Events:");
+                csvBuilder.AppendLine("   Events:");
             }
 
             //id del evento
-            csvBuilder.AppendLine($"      - Id: {e.Id}");
+            csvBuilder.AppendLine($"     - Id: {e.Id}");
 
             //tipo de evento
-            csvBuilder.AppendLine($"        TypeEvent: {e.GetType().Name}");
+            csvBuilder.AppendLine($"       TypeEvent: {e.GetType().Name}");
 
             //timespan idlevel + cosas del evento
             foreach (PropertyInfo property in otherProp)
             {
-                csvBuilder.AppendLine($"        {property.Name}: {property.GetValue(e)}");
+                csvBuilder.AppendLine($"       {property.Name}: {property.GetValue(e)}");
             }
 
             return csvBuilder.ToString();
         }
-        public void OpenFile(FileStream fs)
+        public string OpenFile()
         {
-            fs.Seek(0, SeekOrigin.End);
+            //fs.Seek(0, SeekOrigin.End);
+            return " ";
         }
 
-        public void EndFile(FileStream fs)
+        public string EndFile()
         {
+            return " ";
         }
     }
 }

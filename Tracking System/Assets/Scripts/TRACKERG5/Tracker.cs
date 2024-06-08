@@ -101,20 +101,21 @@ namespace TrackerG5
             idSession = CreateHashID(idUser + getTimeStamp());
 
             Console.WriteLine("USER ID: " + idUser + " SESSION ID: " + idSession);
+            resultLocation = "../Tracking System/Assets/Scripts/TRACKERG5/Data/" + idUser + "-" + idSession;
             //evento de inicio de sesion
             switch (sT)
             {
                 case serializeType.Json:
                     serializer = new JsonSerializer();
-                    resultLocation = "../Tracking System/Assets/Scripts/TRACKERG5/Data/RESULT" + getTimeStamp().ToString() + ".json";
+                    resultLocation += ".json";
                     break;
                 case serializeType.Csv:
                     serializer = new CsvSerializer();
-                    resultLocation = "../Tracking System/Assets/Scripts/TRACKERG5/Data/RESULT" + getTimeStamp().ToString() + ".csv";
+                    resultLocation += ".csv";
                     break;
                 case serializeType.Yaml:
                     serializer = new YamlSerializer();
-                    resultLocation = "../Tracking System/Assets/Scripts/TRACKERG5/Data/RESULT" + getTimeStamp().ToString() + ".yaml";
+                    resultLocation += ".yaml";
                     break;
                 default:
                     throw new Exception("Serializacion no valida");
