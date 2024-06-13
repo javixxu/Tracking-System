@@ -1,8 +1,6 @@
-﻿using DG.Tweening.Plugins.Core.PathCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace TrackerG5
 {
@@ -26,8 +24,6 @@ namespace TrackerG5
             try
             {
                  writer = new StreamWriter(route);
-
-                //Esto habría que quitarlo ya que el archivo tambien lo tiene que abrir FilePersistencie
                 writer.Write(mySerializer.OpenFile());
                 return true;
             }
@@ -52,11 +48,28 @@ namespace TrackerG5
 
         public void Flush()
         {
+            if (WriterClosed(writer))
+                return;
+
             foreach (var item in eventsQueue)
             {
                 writer.Write(mySerializer.Serialize(item));
             }
         }
+
+        private bool WriterClosed(StreamWriter writer)
+        {
+            try
+            {
+                var stream = writer.BaseStream;
+                return false;
+            }
+            catch (ObjectDisposedException)
+            {
+                return true; 
+            }
+        }
+
         void closeFile()
         {
             writer.Write(mySerializer.EndFile());
