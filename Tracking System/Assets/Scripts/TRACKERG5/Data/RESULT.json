@@ -1,7 +1,0 @@
-[
-{"id":"dc53f909b7d97d891493eb9836bd680ca72a6da6f03dd5115d93a0942b484d5d","idLevel":0,"idSession":"323fc4e05f6571fa269e91b7fecb303b292ae8c84c9ab6d5321b576a126a15df","idUser":"af25df128a73a551a6b6bc574d3f165f","timestamp":1717678071364,"typeEvent":"LoginEvent"},
-{"id":"819b020ceaf34c8d97baf31faaff1bcb6aacf2ad313b5a6cf3334d4e509cf1a1","idLevel":0,"idSession":"323fc4e05f6571fa269e91b7fecb303b292ae8c84c9ab6d5321b576a126a15df","idUser":"af25df128a73a551a6b6bc574d3f165f","timestamp":1717678088179,"typeEvent":"LogoutEvent"},
-{"id":"2c171bc0211c17f9d99c540a958304cc5bc1e1fe0b554588c1a30c755b9fc927","idLevel":0,"idSession":"4190595927533b8e3f549b1f222c8ff494f4cab2c3d4b85248f595ff89db1340","idUser":"af25df128a73a551a6b6bc574d3f165f","timestamp":1717678338705,"typeEvent":"LoginEvent"},
-{"id":"2501acfbc4726855aa4f60edb70dd0542f938b12ba584930e1d5af06515926bc","idLevel":0,"idSession":"4190595927533b8e3f549b1f222c8ff494f4cab2c3d4b85248f595ff89db1340","idUser":"af25df128a73a551a6b6bc574d3f165f","timestamp":1717678351991,"typeEvent":"LoseShieldEvent"},
-{"id":"3dd0476bccd4438d60c39793262cde03f941b10967453a45323b3901965cb642","idLevel":0,"idSession":"4190595927533b8e3f549b1f222c8ff494f4cab2c3d4b85248f595ff89db1340","idUser":"af25df128a73a551a6b6bc574d3f165f","timestamp":1717678356096,"typeEvent":"DeathEvent"},
-{"id":"0b8691b6dcbfcaad959f82125d27b9f6555b5345fd499ccf7d395b30d54b7bd0","idLevel":0,"idSession":"4190595927533b8e3f549b1f222c8ff494f4cab2c3d4b85248f595ff89db1340","idUser":"af25df128a73a551a6b6bc574d3f165f","timestamp":1717678357491,"typeEvent":"LogoutEvent"}]
