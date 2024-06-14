@@ -1,0 +1,4 @@
+[
+{"id":"da1652bfcd95448cadbcbe87c0f7e2201a4faa7f63161c43e70e1bee9c049ca1","idLevel":0,"idSession":"da1652bfcd95448cadbcbe87c0f7e2201a4faa7f63161c43e70e1bee9c049ca1","idUser":"af25df128a73a551a6b6bc574d3f165f","timestamp":1718377163,"typeEvent":"LoginEvent"},
+{"id":"751f0ad5eb91eed6aa5dd586ce518154c8a64c3d976b7a67d0f081cd5040e1c9","idLevel":0,"idSession":"da1652bfcd95448cadbcbe87c0f7e2201a4faa7f63161c43e70e1bee9c049ca1","idUser":"af25df128a73a551a6b6bc574d3f165f","timestamp":1718377169,"typeEvent":"StartGameEvent"},
+{"id":"60e9f3156f6c16a1f6da89f527a50d388bae48a47803d0e26e1cb9a06e74ba71","idLevel":0,"idSession":"da1652bfcd95448cadbcbe87c0f7e2201a4faa7f63161c43e70e1bee9c049ca1","idUser":"af25df128a73a551a6b6bc574d3f165f","timestamp":1718377177,"typeEvent":"LogoutEvent"}]

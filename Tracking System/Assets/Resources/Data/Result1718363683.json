@@ -1,5 +1,0 @@
-[
-{"id":"53b59aad653af7abcb56f3dbd61651585fa5e951bfeb2db64493f90bfe1f735b","idLevel":0,"idSession":"53b59aad653af7abcb56f3dbd61651585fa5e951bfeb2db64493f90bfe1f735b","idUser":"146854ed9ed5c531b55cf2d7ee9e0977","timestamp":1718363683,"typeEvent":"LoginEvent"},
-{"id":"da2565258180b50dd4c09b6e9619f09ed6c26ae0d4b9ea508718308b894de401","idLevel":0,"idSession":"53b59aad653af7abcb56f3dbd61651585fa5e951bfeb2db64493f90bfe1f735b","idUser":"146854ed9ed5c531b55cf2d7ee9e0977","timestamp":1718363702,"typeEvent":"LoseShieldEvent"},
-{"id":"7b8c2e558b78f7717bd199af9d2f80cf0c73e842cbb7d996c340b1487f87df49","idLevel":0,"idSession":"53b59aad653af7abcb56f3dbd61651585fa5e951bfeb2db64493f90bfe1f735b","idUser":"146854ed9ed5c531b55cf2d7ee9e0977","timestamp":1718363706,"typeEvent":"DeathEvent"},
-{"id":"ea15825729b7f764940c0ed84718ad94c1cc3fb5c9c9ad3929cc578aec34dd24","idLevel":0,"idSession":"53b59aad653af7abcb56f3dbd61651585fa5e951bfeb2db64493f90bfe1f735b","idUser":"146854ed9ed5c531b55cf2d7ee9e0977","timestamp":1718363708,"typeEvent":"LogoutEvent"}]

@@ -1,6 +1,4 @@
-﻿using System;
-
-
+﻿
 namespace TrackerG5
 {
     internal interface ITrackerAsset

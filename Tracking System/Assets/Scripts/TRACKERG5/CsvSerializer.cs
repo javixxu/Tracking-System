@@ -1,9 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Reflection;
-using System.Text;
-using static UnityEditor.Progress;
-
+﻿using System.Reflection;
 
 namespace TrackerG5
 {
@@ -23,25 +18,6 @@ namespace TrackerG5
         }
         public string OpenFile()
         {
-            //if (fs.Length <= 0)
-            //{
-            //    fs.Seek(0, SeekOrigin.Begin);
-            //    string csvProperties = "";
-
-            //    PropertyInfo[] properties = new TrackerEvent().GetType().GetProperties();
-            //    foreach (PropertyInfo property in properties)
-            //    {
-            //        csvProperties += property.Name+",";
-            //    }
-
-            //    csvProperties += "EventType\n";
-
-            //    byte[] data = Encoding.UTF8.GetBytes(csvProperties);
-            //    fs.Write(data, 0, data.Length);
-            //}
-
-            //fs.Seek(0, SeekOrigin.End);
-
             string csvProperties = "";
 
             PropertyInfo[] properties = new TrackerEvent().GetType().GetProperties();

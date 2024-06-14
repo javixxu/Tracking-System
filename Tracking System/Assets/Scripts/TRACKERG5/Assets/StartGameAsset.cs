@@ -2,9 +2,9 @@
 
 namespace TrackerG5
 {
-    internal class StartGameAsset: ITrackerAsset
+    internal class StartGameAsset : ITrackerAsset
     {
-        public StartGameAsset()  
+        public StartGameAsset()
         {
 
         }

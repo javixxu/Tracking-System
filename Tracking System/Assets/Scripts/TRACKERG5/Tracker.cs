@@ -1,12 +1,10 @@
 ﻿using Assets.Scripts.TRACKERG5;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Security.Cryptography;
 using System.Text;
-using UnityEngine;
 
 namespace TrackerG5
 {
@@ -21,7 +19,6 @@ namespace TrackerG5
 
         IPersistence persistence;
         ISerializer serializer;
-        HashSet<ITrackerAsset> assets = new HashSet<ITrackerAsset>();//lista de assets
 
         public enum serializeType { Json, Csv, Yaml };
         public enum persistenceType { Disc };
@@ -100,10 +97,9 @@ namespace TrackerG5
         {
             idUser = GetUserID();
             idSession = CreateHashID(idUser + getTimeStamp());
+         
+            resultLocation = "../DataTracker/Result" + getTimeStamp();
 
-            Console.WriteLine("USER ID: " + idUser + " SESSION ID: " + idSession);
-            // resultLocation = "../Tracking System/Assets/Scripts/TRACKERG5/Data/" + idUser + "-" + idSession;
-            resultLocation = "../Tracking System/Assets/Resources/Data/Result" + getTimeStamp();
             //evento de inicio de sesion
             switch (sT)
             {

@@ -1,5 +1,4 @@
-﻿using System.IO;
-
+﻿
 namespace TrackerG5
 {
     internal interface ISerializer

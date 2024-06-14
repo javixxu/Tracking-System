@@ -23,7 +23,12 @@ namespace TrackerG5
         {
             try
             {
-                 writer = new StreamWriter(route);
+                string directory = Path.GetDirectoryName(route);
+
+                if (!Directory.Exists(directory))
+                    Directory.CreateDirectory(directory);
+
+                writer = new StreamWriter(route);
                 writer.Write(mySerializer.OpenFile());
                 return true;
             }
@@ -66,7 +71,7 @@ namespace TrackerG5
             }
             catch (ObjectDisposedException)
             {
-                return true; 
+                return true;
             }
         }
 
