@@ -98,7 +98,7 @@ namespace TrackerG5
             idUser = GetUserID();
             idSession = CreateHashID(idUser + getTimeStamp());
          
-            resultLocation = "../DataTracker/Result" + getTimeStamp();
+            resultLocation = "./DataTracker/Result" + getTimeStamp();
 
             //evento de inicio de sesion
             switch (sT)
