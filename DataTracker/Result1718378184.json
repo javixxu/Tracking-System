@@ -1,7 +1,0 @@
-[
-{"id":"e8fa780142eba430902a889cfbed2da557fc82667b0f3c8632eed33128021ece","idLevel":0,"idSession":"e8fa780142eba430902a889cfbed2da557fc82667b0f3c8632eed33128021ece","idUser":"af25df128a73a551a6b6bc574d3f165f","timestamp":1718378184,"typeEvent":"LoginEvent"},
-{"id":"29ca6ddf60c0397bee0926bb179e6cd6394ecfddca6d5eb9bcc303dca0f2ce6a","idLevel":0,"idSession":"e8fa780142eba430902a889cfbed2da557fc82667b0f3c8632eed33128021ece","idUser":"af25df128a73a551a6b6bc574d3f165f","timestamp":1718378187,"typeEvent":"StartGameEvent"},
-{"id":"86a336ddbfec395e034d648257bbe036028974a42e1b6e39857ae594429f9d14","idLevel":0,"idSession":"e8fa780142eba430902a889cfbed2da557fc82667b0f3c8632eed33128021ece","idUser":"af25df128a73a551a6b6bc574d3f165f","timestamp":1718378211,"typeEvent":"LoseShieldEvent"},
-{"id":"ad9cec04164cf7c476cbf089068f761854d25fc33be457c03065df8a37b56ab3","idLevel":0,"idSession":"e8fa780142eba430902a889cfbed2da557fc82667b0f3c8632eed33128021ece","idUser":"af25df128a73a551a6b6bc574d3f165f","timestamp":1718378264,"typeEvent":"LoseShieldEvent"},
-{"id":"8d90001bbc05ad002bf6345327e02965dc53b8e703c1d4e4bf34a4cdcd90dc56","idLevel":0,"idSession":"e8fa780142eba430902a889cfbed2da557fc82667b0f3c8632eed33128021ece","idUser":"af25df128a73a551a6b6bc574d3f165f","timestamp":1718378266,"typeEvent":"EndGameEvent"},
-{"id":"8d90001bbc05ad002bf6345327e02965dc53b8e703c1d4e4bf34a4cdcd90dc56","idLevel":0,"idSession":"e8fa780142eba430902a889cfbed2da557fc82667b0f3c8632eed33128021ece","idUser":"af25df128a73a551a6b6bc574d3f165f","timestamp":1718378266,"typeEvent":"LogoutEvent"}]
