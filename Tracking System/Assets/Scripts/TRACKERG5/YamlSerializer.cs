@@ -28,7 +28,6 @@ namespace Assets.Scripts.TRACKERG5
                 old_IdUser = e.IdUser;
             }
 
-            //ID DE SESSION
             if (old_IdSession != e.IdSession) 
             {
                 csvBuilder.AppendLine($" - IdSession: {e.IdSession}");
@@ -36,9 +35,7 @@ namespace Assets.Scripts.TRACKERG5
                 csvBuilder.AppendLine("   Events:");
             }
 
-            //id del evento
             csvBuilder.AppendLine($"     - Id: {e.Id}");
-            //tipo de evento
             csvBuilder.AppendLine($"       TypeEvent: {e.GetType().Name}");
 
             foreach (PropertyInfo property in otherProp)
@@ -48,12 +45,12 @@ namespace Assets.Scripts.TRACKERG5
 
             return csvBuilder.ToString();
         }
-        public string OpenFile()
+        public string OpenText()
         {
             return " ";
         }
 
-        public string EndFile()
+        public string EndText()
         {
             return " ";
         }
