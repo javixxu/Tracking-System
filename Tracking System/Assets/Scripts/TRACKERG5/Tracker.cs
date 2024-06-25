@@ -14,6 +14,7 @@ namespace TrackerG5
         string idUser;
         string idSession;
         string resultLocation = "";
+        bool sessionClosed = false;
 
         const int size = 7;
 
@@ -65,6 +66,8 @@ namespace TrackerG5
 
         public void AddEvent(eventType eventT, Dictionary<string, string> eventParameters = null)
         {
+            if (sessionClosed)
+                return;
 
             TrackerEvent e = null;
             switch (eventT)
@@ -142,6 +145,8 @@ namespace TrackerG5
         public void End()
         {
             //evento de fin de inicio de sesion
+            sessionClosed = true;
+
             LogoutEvent e = new LogoutEvent();
             e.Id = CreateHashID(idUser + getTimeStamp());
             e.IdUser = idUser;
